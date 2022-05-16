@@ -1,0 +1,42 @@
+package com.test03;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server {
+
+	public static void main(String[] args) {
+		//서버 생성
+		ServerSocket serverSocket = null;
+		
+		//접속된 클라이언트 소켓
+		Socket serviceSocket = null;
+		
+		//출력 객체
+		PrintWriter out = null;
+		
+		BufferedReader in = null;
+		
+		try {
+			serverSocket = new ServerSocket(8888);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		while(true) {
+			System.out.println("client를 기다립니다.");
+			try {
+				serviceSocket = serverSocket.accept();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+
+}

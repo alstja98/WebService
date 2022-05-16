@@ -1,0 +1,39 @@
+package com.model.dao;
+
+import java.util.List;
+
+import com.model.dto.Member;
+
+public class MemberDaoImpl implements MemberDao {
+
+	@Override
+	public List<Member> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Member selectOne(int no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insert(Member m) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(int no) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(Member m) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}

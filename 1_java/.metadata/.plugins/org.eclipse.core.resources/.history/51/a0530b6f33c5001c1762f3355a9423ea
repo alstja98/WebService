@@ -1,0 +1,24 @@
+package com.controller;
+
+public class LibraryManager {
+	public void insertMember(Member mem) {
+		
+	}
+	
+	public Member myinfo() {
+		
+	}
+	
+	
+	public Book[] selectAll() {
+		
+	}
+	
+	public Book[] searchBook(String keyword) {
+		
+	}
+	
+	public int rentBook(int index) {
+		
+	}
+}

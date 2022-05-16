@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gallery{
+            width:  200px;
+            height: 250px;
+            vertical-align: middle;
+        }
+        a{
+            font-size: 30pt;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        let num = 1;
+        function nextGallery(){
+           
+            num++;
+            if(num>4){
+                num=1;
+            }
+            document.getElementById("gallery").src = "./image/img0"+num+".png";
+            return false; //a 태그의 이벤트를 취소해야만 해당 페이지 내에서 기능이 동작함! 꼭알아두기.
+        }
+
+        function preGallery(){
+           
+            num--;
+            if(num < 1) {
+                num=4;
+            }
+            document.getElementById("gallery").src="./image/img0"+num+".png";
+            return false;
+            
+        }
+    </script>
+</head>
+<body>
+    <div id = "galleryWrap">
+        <p>
+            <a onclick="return preGallery();" href="">🧥</a>
+            <img src="./image/img01.png" id="gallery">
+            <a onclick="return nextGallery();" href="">👔</a>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Java11_Object&apos; to &apos;Java11_ObjectArray&apos;" description="Rename resource &apos;Java11_Object&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Java11_Object" name="Java11_ObjectArray" stamp="1649744591613" updateReferences="true"/>
+</session>

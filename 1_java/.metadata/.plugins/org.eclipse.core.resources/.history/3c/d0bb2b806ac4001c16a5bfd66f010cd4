@@ -1,0 +1,22 @@
+package com.test02;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+//서버 생성 후 클라이언트에서 서버로 데이터 보내는거 확인해보기
+public class MyClient {
+	public static void main(String[] args) throws SocketException {
+		//서버 생성(소켓)
+		DatagramSocket ds = new DatagramSocket(9999);
+		
+		//받을 배열 생성
+		byte[] buff = new byte[1024];
+		
+		//패킷을 이용해 데이터를 받음
+		DatagramPacket receiveP = new DatagramPacket(buff,buff.length);
+		ds.receive(receiveP);
+		
+		
+	}
+}

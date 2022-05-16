@@ -1,0 +1,11 @@
+select * from employee;
+
+DROP TABLE MYTEST;
+
+create table MYTEST(
+	MNO INT,
+	MNAME VARCHAR(20),
+	NICKNAME VARCHAR(20)
+);
+
+SELECT * FROM MYTEST;

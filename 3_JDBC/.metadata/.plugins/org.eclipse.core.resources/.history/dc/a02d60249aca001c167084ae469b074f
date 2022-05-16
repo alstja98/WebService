@@ -1,0 +1,34 @@
+package com.test01;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+import static common.JDBCTemplate.*;
+
+public class JDBCTest04 {
+
+	public static void main(String[] args) {
+		//preparedStatement
+		
+		Connection con = null;
+		PreparedStatement pstm = null;
+		
+		int no = 0;
+		String name = null;
+		String nickName = null;
+		
+		String sql = " INSERT INTO MYTEST VALUES(?, ?, ?) " ;
+			
+		Scanner sc = new Scanner(System.in);
+		System.out.println("no: ");
+		no = sc.nextInt();
+		System.out.print("name: ");
+		name = sc.next();
+		System.out.print("nickName: ");
+		nickName = sc.next();
+		
+		con = getConnection();
+		
+	}
+
+}

@@ -1,0 +1,37 @@
+package common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class JDBCTemplate {
+	// 1.mySQL 연결
+	public static Connection getConnection() {
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("[Error] 드라이버 등록 실패");
+			e.printStackTrace();
+		}
+		
+		String url = "jdbc:mysql://localhost:3306/multi";
+		String id = "root";
+		String pw = "1234";
+		Connection con = null;
+		
+		try {
+			con = DriverManager.getConnection(url,id,pw);
+		} catch (SQLException e) {
+			System.out.println("[Error] 커넥션 연결 실패");
+			e.printStackTrace();
+		}
+		
+		return con;
+	}
+	// 2.해제
+	
+	// 3.저장/취소
+	
+	
+}

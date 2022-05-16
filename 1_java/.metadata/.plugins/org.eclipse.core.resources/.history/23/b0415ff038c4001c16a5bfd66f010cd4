@@ -1,0 +1,22 @@
+package com.test01;
+
+public class Thread03 {
+
+	public static void main(String[] args) {
+		MyThread02 m1 = new MyThread02("具克");
+		MyThread02 m2 = new MyThread02("港港");
+		
+		m1.start();
+		
+		try {
+			m1.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		m2.start();
+	}
+
+}

@@ -1,0 +1,89 @@
+package com.view;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.model.dto.Member;
+import com.model.service.MemberController;
+
+
+
+public class MemberView {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		MemberController mc= new MemberController();
+		
+		int select = 0;
+		
+		do {
+			System.out.println("****************");
+			System.out.println("1.전체출력");
+			System.out.println("2.선택출력");
+			System.out.println("3.추가");
+			System.out.println("4.수정");
+			System.out.println("5.삭제");
+			System.out.println("6.종료");
+			System.out.println("****************");
+			System.out.print("메뉴선택 : ");
+			select = sc.nextInt();
+			
+			switch(select) {
+			case 1:
+				System.out.println("---전체선택---");
+				List<Member> res = mc.selectAll();
+				
+				for(Member m : res) {
+					System.out.println(m);
+				}
+				break;
+			case 2:
+				System.out.println("---선택출력---");
+				System.out.println("번호 입력: ");
+				int no = sc.nextInt();
+				
+				Member resOne = mc.selectOne(no);
+				System.out.println(resOne);
+				break;
+			case 3:
+				System.out.println("----추가----");
+				System.out.println("추가할 데이터를 입력해 주세요.");
+				System.out.print("이름: ");
+				String name = sc.next();
+				System.out.print("나이: ");
+				int age = sc.nextInt();
+				System.out.print("성별[M/F]: ");
+				String gender = sc.next();
+				System.out.print("지역: ");
+				String loc = sc.next();
+				System.out.print("직업: ");
+				String job = sc.next();
+				System.out.println("전화번호: ");
+				String tel = sc.next();
+				System.out.println("이메일: ");
+				String email = sc.next();
+				
+				Member insert = new Member(0,name,age,gender,loc,job,tel,email);
+				
+				int inRes = mc.insert(insert);
+				if(inRes >0) {
+					System.out.println("추가 성공");
+				}else {
+					System.out.println("추가 실패");
+				}break;
+				
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				System.out.println("프로그램이 종료되었습니다.");
+				return;
+			}
+		}while(true);
+		
+		
+		
+	}
+
+}

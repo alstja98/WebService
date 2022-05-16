@@ -1,0 +1,39 @@
+package com.view;
+
+import java.util.Scanner;
+
+import com.controller.LibraryManager;
+import com.model.vo.Member;
+
+public class LibraryMenu {
+	private LibraryManager lm = new LibraryManager();
+	Scanner sc = new Scanner(System.in);
+	
+	public void mainMenu() {
+		System.out.println("이름, 나이, 성별을 입력하시오.");
+		System.out.print("이름 : ");
+		String name = sc.nextLine();
+		System.out.print("나이 : ");
+		int age = sc.nextInt();
+		System.out.print("성별(남/여) : ");
+		char gender = sc.next().charAt(0);
+		
+		Member mb = new Member(name, age, gender);
+		
+		LibraryManager lm = new LibraryManager();
+		lm.insertMember(mb);
+		
+	}
+	
+	public void selectAll() {
+		
+	}
+	
+	public void searchBook() {
+		
+	}
+	
+	public void rentBook() {
+		
+	}
+}

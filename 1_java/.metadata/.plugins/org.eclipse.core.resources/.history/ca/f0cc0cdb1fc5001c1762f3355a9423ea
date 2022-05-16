@@ -1,0 +1,21 @@
+package com.test03;
+
+import java.util.function.Function;
+
+public class Functional03 {
+
+	public static void main(String[] args) {
+
+		
+	}
+	
+	public static void func01() {
+		//function 매개변수 있음, 반환값 있음.
+		//apply();
+		Function<Integer, String> ti = n -> (n<10)? "0"+n : ""+n ;
+		System.out.println(ti.apply(1));
+		System.out.println(ti.apply(6));
+		System.out.println(ti.apply(10));
+	}
+
+}

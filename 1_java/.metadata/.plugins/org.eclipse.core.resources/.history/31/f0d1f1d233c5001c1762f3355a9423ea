@@ -1,0 +1,26 @@
+package com.view;
+
+import java.util.Scanner;
+
+import com.controller.LibraryManager;
+
+public class LibraryMenu {
+	private LibraryManager lm;
+	Scanner sc = new Scanner(System.in);
+	
+	public void mainMenu() {
+		
+	}
+	
+	public void selectAll() {
+		
+	}
+	
+	public void searchBook() {
+		
+	}
+	
+	public void rentBook() {
+		
+	}
+}

@@ -1,0 +1,46 @@
+package com.model.service;
+
+import java.sql.Connection;
+import java.util.List;
+
+import com.model.dao.MemberDao;
+import com.model.dto.Member;
+import common.JDBCTemplate.*;
+public class MemberBizImpl implements MemberBiz {
+	
+	MemberDao md = new MemberDaoImpl();
+	
+	@Override
+	public List<Member> selectAll() {
+		Connection con = getConnection();
+		List<Member> res = md.selectAll(con);
+		Close(con);
+		return null;
+	}
+
+	@Override
+	public Member selectOne(int no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insert(Member m) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(int no) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(Member m) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+
+}

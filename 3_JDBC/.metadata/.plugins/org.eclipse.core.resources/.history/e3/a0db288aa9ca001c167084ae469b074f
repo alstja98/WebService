@@ -1,0 +1,50 @@
+package com.view;
+
+import java.sql.Connection;
+import java.util.Scanner;
+
+import com.model.dao.MyTestDao;
+import static common.JDBCTemplate.*;
+
+public class MyTestView {
+
+	public static void main(String[] args) {
+		int no=0;
+		
+		int mno = 0;
+		String name = null;
+		String nickName = null;
+		
+		Connection con = getConnection();
+		MyTestDao dao = new MyTestDao(con);
+		
+		Scanner sc = new Scanner(System.in);
+		
+		do {
+			System.out.println("****MENU****");
+			System.out.println("1.전체출력");
+			System.out.println("2. 추가");
+			System.out.println("3. 수정");
+			System.out.println("4. 삭제");
+			System.out.println("5. 종료");
+			System.out.println();
+			System.out.println("메뉴 선택: ");
+			no = sc.nextInt();
+			
+			System.out.println();
+			switch(no) {
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+				System.out.println("종료");
+				Close(con);
+				sc.close();
+				break;
+		
+			}
+		}while(true);
+	}
+
+}

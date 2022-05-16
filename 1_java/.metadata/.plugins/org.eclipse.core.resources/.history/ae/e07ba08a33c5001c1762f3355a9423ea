@@ -1,0 +1,30 @@
+package com.controller;
+
+import com.model.vo.Book;
+import com.model.vo.Member;
+
+public class LibraryManager {
+	private Member mem = null;
+	private Book[] bList = new Book[5];
+	
+	public void insertMember(Member mem) {
+		
+	}
+	
+	public Member myinfo() {
+		
+	}
+	
+	
+	public Book[] selectAll() {
+		
+	}
+	
+	public Book[] searchBook(String keyword) {
+		
+	}
+	
+	public int rentBook(int index) {
+		
+	}
+}

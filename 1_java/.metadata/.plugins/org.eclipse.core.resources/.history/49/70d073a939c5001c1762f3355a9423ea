@@ -1,0 +1,79 @@
+package com.view;
+
+import java.util.Scanner;
+
+import com.controller.LibraryManager;
+import com.model.vo.AniBook;
+import com.model.vo.Book;
+import com.model.vo.CookBook;
+import com.model.vo.Member;
+
+public class LibraryMenu {
+	private LibraryManager lm = new LibraryManager();
+	Scanner sc = new Scanner(System.in);
+	
+	public void mainMenu() {
+		System.out.println("이름, 나이, 성별을 입력하시오.");
+		System.out.print("이름 : ");
+		String name = sc.nextLine();
+		System.out.print("나이 : ");
+		int age = sc.nextInt();
+		System.out.print("성별(남/여) : ");
+		char gender = sc.next().charAt(0);
+		
+		Member mb = new Member(name, age, gender);
+		
+		LibraryManager lm = new LibraryManager();
+		lm.insertMember(mb);
+		
+		while(true) {
+			System.out.println("=========메뉴=========");
+			System.out.println("1. 마이페이지");
+			System.out.println("2. 도서 전체 조회");
+			System.out.println("3. 도서 검색");
+			System.out.println("4. 도서 대여하기");
+			System.out.println("0. 프로그램 종료하기");
+			
+			System.out.print("메뉴 번호를 입력하세요");
+			int i = sc.nextInt();
+			switch(i) {
+			case 1: 
+				System.out.println(lm.myinfo());
+			case 2:
+				lm.selectAll();
+			case 3:
+				lm.searchBook(null);
+			case 4:
+				lm.rentBook(gender);
+			case 0:
+				System.out.println("프로그램을 종료합니다.");
+				break;
+			default : 
+				System.out.println("0~4 사이의 값을 입력하시오.");
+				
+			}
+		}
+	}
+	
+	public void selectAll() {
+		Book[] bList = lm.selectAll();
+		
+		for(int i=0; i<bList.length; i++) {
+			if(bList[i] == 요리책일떄) {
+				System.out.println(i+"번 도서 : " + bList[i].getTitle() + " / " + bList[i].getAuthor() + " / " + bList[i].getPublisher() + " / " + CookBook.isCoupon() );
+			}else {
+				System.out.println(i+"번 도서 : " + bList[i].getTitle() + " / " + bList[i].getAuthor() + " / " + bList[i].getPublisher() + " / " + AniBook.getAccessAge() );
+			}
+			
+		}
+	}
+	
+	public void searchBook() {
+		
+		
+	}
+	
+	public void rentBook() {
+		
+	}
+}

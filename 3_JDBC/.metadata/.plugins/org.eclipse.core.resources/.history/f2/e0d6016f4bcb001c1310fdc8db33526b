@@ -1,0 +1,32 @@
+package com.model.service;
+
+import java.util.List;
+
+import com.model.dto.Member;
+
+public class MemberController {
+	
+	public List<Member> selectAll() {
+		return null;
+	}
+	
+	public Member selectOne(int no) {
+		return null;
+	}
+	
+	public int insert(Member m) {
+		return 0;
+	}
+	
+	public int delete(int no) {
+		return 0;
+	}
+	
+	public int update(Member m) {
+		return 0;
+	}
+	
+	
+	
+
+}

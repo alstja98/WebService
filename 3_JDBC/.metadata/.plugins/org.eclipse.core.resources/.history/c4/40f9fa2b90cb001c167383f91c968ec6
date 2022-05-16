@@ -1,0 +1,49 @@
+package com.test2;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import static common.JDBCTemplate.*;
+
+public class Run {
+
+	public static void main(String[] args) {
+
+		
+	}
+	
+	public List<Board> selectAll(Connection con){
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		List<Board> res = new ArrayList<Board>();
+		
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(" SELECT * FROM BOARD ");
+			
+			while(rs.next()) {
+				Board tmp = new Board();
+				tmp.setNo(rs.getInt(1));
+				tmp.setTitle(rs.getString(2));
+				tmp.setWriter(rs.getString(3));
+				tmp.setContent(rs.getString(4));
+				tmp.setRegdate(rs.getDate(5));
+				
+				res.add(tmp);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Close(rs);
+			Close(stmt);
+		}
+		
+		
+	}
+
+}

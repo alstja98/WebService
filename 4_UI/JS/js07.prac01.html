@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function printVal() {
+            let userName = document.getElementsByTagName("input")[0].value;
+            let productName = document.getElementById("pname").value;
+            let productPrice = document.getElementsByName("price")[0].value;
+
+            let area = document.getElementById("area");
+            area.innerHTML += "구입자: " + userName + "님<br>";
+            area.innerHTML += "구입상품: " + productName + "<br>";
+            area.innerHTML += "구매가격 : " + productPrice + "만원";
+        }
+    </script>
+    <style>
+        #area{
+            width: 400px;
+            height: 200px;
+            background-color: lemonchiffon;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1> 연습 1 </h1>
+    <p>구매자 : <input type="text" placeholder="구매자의 이름을 입력하세요." value="" size="15%"></p>
+    <p>상품명 : <input type="text" id="pname" placeholder="구매 상품평을 입력하세요." value="" size="15%"></p>
+    <p>가격 : <input type="text" name="price" placeholder="구매 가격을 입력하세요." value="" size="15%"></p>
+    <button onclick="printVal();">입력값 출력하기</button>
+    <br><br>
+    <div id="area"></div>
+</body>
+</html>

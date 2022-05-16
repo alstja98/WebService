@@ -1,0 +1,27 @@
+package com.model.dao;
+
+import java.util.List;
+
+import com.model.dto.MyTest;
+
+public class MyTestDao {
+
+	//select
+	public List<MyTest> getAll() {
+		return null;
+	}
+	
+	//insert
+	public int insert(MyTest input) {
+		return 0;
+	}
+	
+	public int update(MyTest input) {
+		return 0;
+	}
+	
+	public int deleted(MyTest input) {
+		return 0;
+		
+	} }
+	

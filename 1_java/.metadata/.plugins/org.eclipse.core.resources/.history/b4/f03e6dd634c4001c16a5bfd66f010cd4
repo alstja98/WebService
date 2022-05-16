@@ -1,0 +1,23 @@
+package com.test01;
+
+class MyThread2 extends Thread {
+	
+	public MyThread02(String name) {
+		super(name);
+	}
+	
+	@Override
+	public void run() {
+		for(int i=0; i<100; i++) {
+			System.out.println(this.getName() + " = " + i);
+		}
+	}
+}
+
+public class Thread02 {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
