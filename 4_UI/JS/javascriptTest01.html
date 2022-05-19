@@ -3,7 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <title>화이팅!</title>
+<script>
+	function answer01(){
+		let value = document.getElementById("q01_num").value;
+		if(isNaN(value)) {
+			alert("숫자가 아닙니다.");
+		}else{
+			alert("숫자입니다.");
+		}
+	}
 
+	function answer02(){
+		let value = document.getElementsByTagName("input")[1].value;
+		let arr = document.getElementById("nameList").innerHTML.split(" ");
+		let index = arr.indexOf(value);
+		if(index>=0){
+			alert("이름이 있습니다.");
+		}else{
+			alert("이름이 없습니다.");
+		}
+
+	}
+
+	function answer03(){
+		if(document.getElementsByName("rdo")[0].checked){
+			window.open("http://www.naver.com");
+		}else if(document.getElementsByName("rdo")[1].checked){
+			window.open("http://www.google.com");
+		}else if(document.getElementsByName("rdo")[2].checked){
+			window.open("http://www.w3schools.com");
+		}
+
+	}
+</script>
 
 
 </head>
