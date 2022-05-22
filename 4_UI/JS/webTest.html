@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let axios = require("axios");
+        let request = require('request');
+        let cheerio = require('cheerio');
+        let url = "https://playtoearn.net/blockchaingames";
+
+        function delay(ms) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function(){
+                    resolve();
+                },ms);
+            });
+        }
+
+        function getHTML(url){
+            return new Promise(resolve=>{
+                delay(300).then(function(){
+                    axios.get(url).then(function(data){
+                        resolve(data);
+                    })
+                })
+            })
+        
+        }
+
+
+    </script>
+</head>
+<body>
+    <input type="button" onclick="getHTML(https://playtoearn.net/blockchaingames)"/>클릭
+</body>
+</html>
