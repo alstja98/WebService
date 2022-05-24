@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid red;
+            width: 400px;
+            height: 200px;
+            padding: 20px;
+            overflow: auto;
+        }
+        div p:first-child{
+            float: left;
+            border: 1px solid blue;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px; /*text 세로 높이 정렬 */
+        } 
+        div p:last-child{
+            float: right;
+            border: 1px solid blue;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px; /*text 세로 높이 정렬 */
+        } 
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        이벤트 전파 : 요소들이 서로 포함관계인 경우 요소중 하나의 이벤트가 발생하면 중첩이된 요소들도 이벤트가 전파된다.
+                    즉, 나는 p태그 부분을 클릭하면 p클릭!만 나오게 하고 싶은데 p클릭, div클릭 둘다 이벤트가 발생되는 문제
+        
+        이벤트 전파 막는 방법:
+            -stopPropagation() : 이벤트 전파 막기
+            -preventDefault() : 이벤트에 의한 기본동작 막기
+            -return false : stopPropagation, preventDefault 두개를 합쳐놓은 기능.
+        */
+        $(function(){
+            $("a:eq(0)").click(function(e){
+                alert("a클릭!");
+                //e.stopPropagation(); 
+                //e.preventDefault(); //이벤트 동작은 이루어지고, 기본동작인 링크이동이 안됨.
+                return false;
+            });
+            $("p").click(function(){
+                alert("p클릭!");
+            });
+            $("div").click(function(){
+                alert("div클릭!");
+            });
+
+            /*
+            $("a:eq(1)").bind("mouseover",function(){
+                //마우스가 위에 오면, css를 a두번째 태그에 연결(binding)하겠다.
+                $(this).css("background-color","pink");
+            });
+            */
+
+            $("a:eq(1)").bind({
+                "mouseover":function(){
+                    $(this).css("background-color","pink");
+                }, 
+                "mouseout":function(){
+                    $(this).css("background-color","skyblue");
+                }
+            });
+
+            $("button").click(function(){
+                //append 하면 p태그가 추가됨.
+                $("body").append("<p>새로 추가된 p태그</p>");
+            });
+
+            //on 이라는 메소드를 이용해서, 추가되는 태그들의 이벤트 적용을 시켜줌.
+            $("body").on("click",">p",function(){
+                alert("새로 추가된 요소도 이벤트 적용가능");
+            });
+
+            $("span").click(function(){
+                alert("span클릭!");
+                //unbind메소드를 이용하면 bind이벤트를 끊어버림.
+                $("a:eq(1)").unbind();
+            })
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p>
+            <a href="https://www.naver.com">클릭!</a>
+        </p>
+        <p>
+            클릭!
+        </p>
+    </div>
+    <div>
+        <p>
+            <a href="https://www.google.com">클릭!</a>
+        </p>
+        <p>
+            클릭!
+        </p>
+    </div>
+    <span>이벤트 해제</span>
+    <button>버튼클릭!</button>
+</body>
+</html>
